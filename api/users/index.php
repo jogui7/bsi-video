@@ -6,7 +6,8 @@ require_once './users.class.php';
 $users = new Users();
 
 $method = $_SERVER['REQUEST_METHOD'];
-$request = $_SERVER['QUERY_STRING'];
+// $request = $_SERVER['QUERY_STRING'];
+$request = explode("/", $_SERVER['PATH_INFO']);
 
 
 switch ($method) {
@@ -20,7 +21,7 @@ switch ($method) {
         $users->find($mysqli, $request); 
         break;
     case 'DELETE':
-        $users->delete($request); 
+        $users->delete($mysqli, $request); 
         break;
     default:
         handle_error($request);  

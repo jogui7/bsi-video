@@ -15,7 +15,7 @@ class Users {
 
         
         $result = $mysqli->query($query);
-        printf("Errormessage: %s\n", $mysqli->error);
+        //printf("Errormessage: %s\n", $mysqli->error);
 
         $mysqli->close();
 
@@ -23,14 +23,23 @@ class Users {
     }
 
     public function find($mysqli, $request){
-        $query = "SELECT * FROM users";
+        if($request[1]) {
+            $id = $request[1];
+            $query = "SELECT * FROM users WHERE id = '{$id}'";
+        } else {
+            $query = "SELECT * FROM users";
+        }
 
         $result = $mysqli->query($query);
-        //printf("Errormessage: %s\n", $mysqli->error);
+        // printf("Errormessage: %s\n", $mysqli->error);
 
         $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        echo json_encode($users[0]);
+        if(sizeof($users) == 1){
+            $users = $users[0];
+        }
+        
+        echo json_encode($users);
 
         $mysqli->close();
 
@@ -41,7 +50,19 @@ class Users {
 
     }
 
-    public function delete($request){
+    public function delete($mysqli, $request){
+        if($request[1]) {
+            $id = $request[1];
+            $query = "DELETE FROM users WHERE id = '{$id}'";
+        } else {
+            echo json_encode(array('message' => 'Usuário não encontrado!'));
+            return http_response_code(400);
+        }
 
+        $mysqli->query($query);
+        $mysqli->close();
+
+        echo json_encode(array('message' => 'Usuário removido com sucesso!'));
+        return http_response_code(200);
     }
 }
