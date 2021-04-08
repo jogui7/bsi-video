@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/PagLogin.css" rel="stylesheet">
+    <script type="text/javascript" src="js/login.js"></script>
+</head>
+
+<body>
+    <form action="/action_page.php" method="post">
+        <h2>Tela de Login</h2>
+        <div class="imgcontainer">
+            <img src="img/avataricon.webp" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="uname">Usuário</label>
+            <input type="text" placeholder="Digite Usuário" name="nome" required>
+
+            <label for="psw">Senha</label>
+            <input type="password" placeholder="Digite Senha" name="senha" required>
+
+            <button type="button" onclick="js/login.js">Login</button>
+            <label>
+      <input type="checkbox" checked="checked" name="remember"> Lembrar-se de Mim
+    </label>
+        </div>
+
+        <div class="container" style="background-color:#ffffff80">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="senha">Esqueceu sua <a href="#">senha?</a></span>
+        </div>
+    </form>
+
+</body>
+
+</html>
