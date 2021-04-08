@@ -10,22 +10,23 @@ function cadastrar(){
     var titular = $("#txtTitular").val();
     var CPF = $("#txtCPF").val();
 
-    var formData = {
-        name: nome,
-        birthdate: mysqlDate(new Date(nascimento)),
-        email,
-        password: senha,
-        creditCardNumber: numero,
-        creditCardExpireDate: mysqlDate(new Date(validade)),
-        ccv: codigo,
-        cardHolderName: titular,
-        cpfCNPJ: CPF,
-    };
+    alert("A");
+        
+    var formData = {};
+    formData.append('name', nome);
+    formData.append('birthdate', mysqlDate()  );
+    formData.append('email', email );
+    formData.append('password', senha );
+    formData.append('creditCardNumber', numero );
+    formData.append('creditCardExpireDate', mysqlDate() );
+    formData.append('ccv', codigo );
+    formData.append('cardHolderName', titular );
+    formData.append('cpfCNPJ', CPF );
 
     fetch("http://localhost/bsi-video/api/users/index.php/", {
         method: "POST",
-        body: JSON.stringify(formData)
-    }).then(res => console.log(res.json))
+        body: formData
+    })
 }
 
 function mysqlDate(date){
