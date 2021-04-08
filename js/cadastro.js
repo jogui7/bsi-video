@@ -1,4 +1,3 @@
-
 function cadastrar(){
     var nome = $("#txtNome").val();
     var nascimento = $("#txtNascimento").val();
