@@ -1,5 +1,7 @@
 <?php 
 
+require_once '../mailer/email.class.php';
+
 class Users {
 
     public function create($mysqli){
@@ -11,10 +13,17 @@ class Users {
 
         $password = password_hash($body->password, PASSWORD_BCRYPT, $options);
 
-        $query = "INSERT INTO users VALUES ('','{$body->name}', '{$body->birthdate}', '{$body->email}', '{$password}', '{$body->creditCardNumber}', '{$body->creditCardExpireDate}', '{$body->ccv}', '{$body->cardHolderName}', '{$body->cpfCNPJ}')";
+        $token = uniqid("");
 
-        
+        $query = "INSERT INTO users VALUES ('','{$body->name}', '{$body->birthdate}', '{$body->email}', '{$password}', '{$body->creditCardNumber}', '{$body->creditCardExpireDate}', '{$body->ccv}', '{$body->cardHolderName}', '{$body->cpfCNPJ}', '','{$token}')";        
+
         $result = $mysqli->query($query);
+
+        $email = new Email();
+        $title = 'Confirme o seu cadastro na bsivideo';
+		$message = '<b>Confirme seu email clicando no link a seguir: </b>'.'bsi.video.test/api/confirmUser/'.$token;
+
+        $email->send($title, $message, $body->email);
 
         $mysqli->close();
 

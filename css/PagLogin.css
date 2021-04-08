@@ -30,7 +30,7 @@ input[type=password] {
 }
 
 button {
-    background-color: #272262;
+    background-color: #9836f4;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -43,10 +43,10 @@ button:hover {
     opacity: 0.8;
 }
 
-.cancelbtn {
+.cadastrarbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #f44336;
+    background-color: #53286d;
 }
 
 .imgcontainer {
