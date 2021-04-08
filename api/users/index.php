@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 
 require_once '../database/index.php';
 require_once './users.class.php';

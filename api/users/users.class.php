@@ -15,7 +15,6 @@ class Users {
 
         
         $result = $mysqli->query($query);
-        //printf("Errormessage: %s\n", $mysqli->error);
 
         $mysqli->close();
 
