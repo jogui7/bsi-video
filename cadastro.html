@@ -10,83 +10,68 @@
         src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
+    <script src="../js/libs/sjcl.js"></script>
     <script type="text/javascript" src="js/cadastro.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="card">
             <h1> Cadastrar-se </h1>
+                <form>
+                    <div class='label-float'>
+                        <input type="text" id="nome" name="nome" required/>
+                        <label for='nome'>Nome completo</label>
+                    </div>      
+
+                    <div class='label-float'>      
+                        <input type="date" id="nascimento" name="nascimento"/>
+                        <label for='nascimento'>Data de Nascimento</label>
+                    </div>     
+
+                    <div class='label-float'>       
+                        <input type="email" id="email" name="email"/>
+                        <label for='email'>E-mail</label>
+                    </div>     
+
+                    <div class='label-float'>        
+                        <input type="password" id="senha" name="senha"/>
+                        <label for='senha'>Senha</label>
+                    </div>             
+
+                    <div class='label-float'>        
+                        <input type="password" id="confSenha" name="confSenha" />
+                        <label for='confSenha'>Confirmar Senha</label>
+                    </div>  
+
+                    <div class='label-float'>       
+                        <input type="number" id="numero" name="numero" />
+                        <label for='numero'>Número do cartão</label>
+                    </div> 
+
+                    <div class='label-float'>        
+                        <input type="month" id="validade" name="validade"/>
+                        <label for='validade'>Validade do cartão</label>
+                    </div>             
+
+                    <div class='label-float'>       
+                        <input type="number" id="codigo" name="codigo"/>
+                        <label for='codigo'>Código de segurança do cartão</label>
+                    </div>    
+
+                    <div class='label-float'>        
+                        <input type="text" id="titular" name="titular" />
+                        <label for='titular'>Nome do titular do cartão</label>
+                    </div>             
+
+                    <div class='label-float'>        
+                        <input type="number" id="cpf" name="cpf" />
+                        <label for='cpf'>CPF/CNPJ</label>
+                    </div>           
         
-                <div class='label-float'>
-                     <input type="text" id="txtNome"  placeholder="" />
-                     <label for='txtNome'>Nome completo</label>
-                </div>
-
-                        
-
-                <div class='label-float'>      
-                     <input type="date" id="txtNascimento"  placeholder="" />
-                     <label for='txtNascimento'>Data de Nascimento</label>
-                </div>          
-
-
-
-                <div class='label-float'>       
-                    <input type="text" id="txtEmail"  placeholder="" />
-                     <label for='txtEmail'>E-mail</label>
-                </div>             
-                    
-
-                <div class='label-float'>        
-                     <input type="password" id="txtSenha"  placeholder="" />
-                      <label for='txtSenha'>Senha</label>
-                     
-                </div>             
-
-                <div class='label-float'>        
-                    <input type="password" id="txtConfSenha"  placeholder="" />
-                     <label for='txtConfSenha'>Confirmar Senha</label>
-                </div>            
-
-                    
-
-                <div class='label-float'>       
-                     <input type="text" id="txtNumero"  placeholder="" />
-                      <label for='txtNumero'>Número do cartão</label>
-                </div> 
-
-                <div class='label-float'>        
-                    <input type="text" id="txtValidade"  placeholder="" />
-                     <label for='txtValidade'>Validade do cartão</label>
-                </div>             
-
-                        
-
-                <div class='label-float'>       
-                     <input type="text" id="txtCodigo"  placeholder="" />
-                      <label for='txtCodigo'>Código de segurança do cartão</label>
-                </div>             
-                    
-
-                <div class='label-float'>        
-                    <input type="text" id="txtTitular"  placeholder="" />
-                     <label for='txtTitular'>Nome do titular do cartão</label>
-                </div>             
-
-                <div class='label-float'>        
-                    <input type="text" id="txtCPF"  placeholder="" />
-                     <label for='txtCPF'>CPF/CNPJ</label>
-                </div>           
-
-
-
-
-                       
-                 <button id="botaoCadastrar " onclick="cadastrar()">
-                     Cadastrar
-                 </button>
-                          
-            <div/>
+                    <button id="botaoCadastrar" type="submit">
+                        Cadastrar
+                    </button>
+                </form>
         </div>
 </body>
 </html>

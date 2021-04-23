@@ -6,27 +6,29 @@
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/PagLogin.css" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+    <script src="../js/libs/sjcl.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
 </head>
 
 <body>
     <form action="/action_page.php" method="post">
         <h2>Tela de Login</h2>
-        <div class="imgcontainer">
-            <img src="img/avataricon.webp" alt="Avatar" class="avatar">
-        </div>
 
         <div class="container">
-            <label for="uname">Usuário</label>
-            <input type="text" placeholder="Digite Usuário" name="nome" required>
+            <label for="email">Usuário</label>
+            <input type="text" placeholder="Digite Usuário" id="email" name="email" required>
 
-            <label for="psw">Senha</label>
-            <input type="password" placeholder="Digite Senha" name="senha" required>
+            <label for="password">Senha</label>
+            <input type="password" placeholder="Digite Senha" id="password" name="password" required>
 
-            <button type="button" onclick="js/login.js">Login</button>
+            <button type="button" id="loginButton" type="submit">Login</button>
             <label>
-      <input type="checkbox" checked="checked" name="remember"> Lembrar-se de Mim
-    </label>
+                <input type="checkbox" id="remember" name="remember"> Lembrar-se de Mim
+            </label>
         </div>
 
         <div class="container" style="background-color:#ffffff80">
