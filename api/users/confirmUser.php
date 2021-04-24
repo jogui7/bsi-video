@@ -1,6 +1,5 @@
 <?php
     require_once '../database/index.php';
-
     $token = $_GET['token'];
 
     $query = "UPDATE users SET is_confirmed = true, token = null WHERE token = '{$token}'";        

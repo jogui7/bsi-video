@@ -84,7 +84,6 @@ function cadastrar(){
             window.location.href = "http://bsi.video.test/login.html";
         }
     })
-
 }
 
 function mysqlDate(date){
