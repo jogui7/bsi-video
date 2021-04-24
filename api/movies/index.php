@@ -12,12 +12,13 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: *");
 
 require_once '../database/index.php';
-require_once './users.class.php';
+require_once './movies.class.php';
 
-$users = new Users();
+$movies = new Movies();
 
 $method = $_SERVER['REQUEST_METHOD'];
 // $request = $_SERVER['QUERY_STRING'];
+
 if(isset($_SERVER['PATH_INFO'])) {
     $request = explode("/", $_SERVER['PATH_INFO']);
 }
@@ -26,16 +27,16 @@ $request = "";
 
 switch ($method) {
     case 'PATCH':
-        $users->update($mysqli);  
+        $movies->update($mysqli);  
         break;
     case 'POST':
-        $users->create($mysqli);  
+        $movies->create($mysqli);  
         break;
     case 'GET':
-        $users->find($mysqli, $request); 
+        $movies->find($mysqli, $request); 
         break;
     case 'DELETE':
-        $users->delete($mysqli, $request); 
+        $movies->delete($mysqli, $request); 
         break;
     default:
         handle_error($request);  

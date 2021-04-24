@@ -11,6 +11,11 @@ class Auth {
 
         if(mysqli_num_rows($result) > 0) {
             echo json_encode(array('message' => 'Logado com sucesso!'));
+
+            $user = mysqli_fetch_row($result);
+
+            $this->startSession($user);
+
             return http_response_code(200);
         }
 
@@ -20,4 +25,26 @@ class Auth {
         return http_response_code(401);
 
     }
+
+    public function delete() {
+        session_start();
+
+        session_destroy();
+
+        return http_response_code(200);
+    }
+
+    private function startSession($user) {
+        session_start();
+        $_SESSION["userId"] = $user[0];
+        $_SESSION["userName"] = $user[1];
+        $_SESSION["userBirthDate"] = $user[2];
+        $_SESSION["userEmail"] = $user[3];
+        $_SESSION["userCardNumber"] = $user[5];
+        $_SESSION["userCardExpireDate"] = $user[6];
+        $_SESSION["userCCV"] = $user[7];
+        $_SESSION["userCardHolderName"] = $user[8];
+        $_SESSION["userCpf"] = $user[9];
+    }
+
 }

@@ -27,7 +27,7 @@ class Users {
 
         $email = new Email();
         $title = 'Confirme o seu cadastro na bsivideo';
-		$message = 'Confirme seu email clicando no link a seguir: '.'<a href="bsi.video.test/api/confirmUser/?token='.$token.'">confirmar cadastro</a>';
+		$message = 'Confirme seu email clicando no link a seguir: '.'<a href="bsi.video.test/api/users/confirmUser?token='.$token.'">confirmar cadastro</a>';
 
         $email->send($title, $message, $body->email);
 
@@ -40,7 +40,7 @@ class Users {
     }
 
     public function find($mysqli, $request){
-        if($request[1]) {
+        if(isset($request[1])) {
             $id = $request[1];
             $query = "SELECT * FROM users WHERE id = '{$id}'";
         } else {
@@ -61,8 +61,60 @@ class Users {
 
     }
 
-    public function update($request){
+    public function update($mysqli){
 
+        $id = $_SESSION["userId"];
+
+        $body = json_decode(file_get_contents('php://input', true));
+
+        $query = [];
+
+        if(isset($body->name)) {
+            array_push($query, "name = '{$body->name}'");
+        }
+
+        if(isset($body->birthDate)) {
+            array_push($query, "birthdate = '{$body->birthDate}'");
+        }
+
+        if(isset($body->email)) {
+            array_push($query, "email = '{$body->email}'");
+        }
+
+        if(isset($body->creditCardNumber)) {
+            array_push($query, "credit_card_number = '{$body->creditCardNumber}'");
+        }
+
+        if(isset($body->creditCardExpireDate)) {
+            array_push($query, "credit_card_expire_date = '{$body->creditCardExpireDate}'");
+        }
+
+        if(isset($body->ccv)) {
+            array_push($query, "ccv = '{$body->ccv}'");
+        }
+
+        if(isset($body->cardHolderName)) {
+            array_push($query, "card_holder_name = '{$body->cardHolderName}'");
+        }
+
+        if(isset($body->cpfCnpj)) {
+            array_push($query, "cpf_cnpj = '{$body->cpfCnpj}'");
+        }
+
+        $query = implode(", ", $query);
+
+        $query = "UPDATE users SET ".$query." WHERE id = '{$id}'";
+
+        $result = $mysqli->query($query);
+        $mysqli->close();
+
+        if(!$result) {
+            echo json_encode(array('message' => 'Usuário não encontrado!'));
+            return http_response_code(400);
+        }
+
+        echo json_encode(array('message' => 'Usuário alterado com sucesso!'));
+        return http_response_code(200);
     }
 
     public function delete($mysqli, $request){

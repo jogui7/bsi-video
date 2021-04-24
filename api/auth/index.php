@@ -14,6 +14,9 @@ switch ($method) {
     case 'POST':
         $auth->create($mysqli);  
         break;
+    case 'DELETE':
+        $auth->delete();  
+        break;
     default:
         handle_error($request);  
         break;
