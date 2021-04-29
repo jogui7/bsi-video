@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/PagLogin.css" rel="stylesheet">
+    <link href="css/globals.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
     <script
         src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -15,28 +16,27 @@
 </head>
 
 <body>
-    <form action="/action_page.php" method="post">
-        <h2>Tela de Login</h2>
-
-        <div class="container">
-            <label for="email">Usuário</label>
+    <div class="content">
+        <form>
+            <h1>Entrar</h1>
+            <label for="email">Usuário:</label>
             <input type="text" placeholder="Digite Usuário" id="email" name="email" required>
 
-            <label for="password">Senha</label>
+            <label for="password">Senha:</label>
             <input type="password" placeholder="Digite Senha" id="password" name="password" required>
 
             <button type="button" id="loginButton" type="submit">Login</button>
-            <label>
-                <input type="checkbox" id="remember" name="remember"> Lembrar-se de Mim
-            </label>
-        </div>
 
-        <div class="container" style="background-color:#ffffff80">
-            <a href="cadastro.html" class="cadastrarbtn">Cadastrar-se</a></button>
-            <span class="senha">Esqueceu sua <a href="/recuperarSenha.html">senha?</a></span>
-        </div>
-    </form>
-
+            <div class="row">
+                <div class="row checkbox">
+                    <input type="checkbox" id="remember" name="remember"> 
+                    <label for="remember">Lembrar-se de Mim</label>
+                </div>
+                <span class="senha">Esqueceu sua <a href="/recuperarSenha.html">senha?</a></span>
+            </div>
+            <a href="cadastro.html" class="cadastrarbtn">Cadastrar-se</a>
+        </form>
+    </div>
 </body>
 
 </html>

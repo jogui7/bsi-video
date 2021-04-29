@@ -62,7 +62,7 @@ class Users {
     }
 
     public function update($mysqli){
-
+        
         $id = $_SESSION["userId"];
 
         $body = json_decode(file_get_contents('php://input', true));
@@ -71,47 +71,56 @@ class Users {
 
         if(isset($body->name)) {
             array_push($query, "name = '{$body->name}'");
+            $_SESSION["userName"] = $body->name;
         }
 
         if(isset($body->birthDate)) {
             array_push($query, "birthdate = '{$body->birthDate}'");
+            $_SESSION["userBirthDate"] = $body->birthDate;
         }
 
         if(isset($body->email)) {
             array_push($query, "email = '{$body->email}'");
+            $_SESSION["userEmail"] = $body->email;
         }
 
         if(isset($body->creditCardNumber)) {
             array_push($query, "credit_card_number = '{$body->creditCardNumber}'");
+            $_SESSION["userCardNumber"] = $body->creditCardNumber;
         }
 
         if(isset($body->creditCardExpireDate)) {
             array_push($query, "credit_card_expire_date = '{$body->creditCardExpireDate}'");
+            $_SESSION["userCardExpireDate"] = $body->creditCardExpireDate;
         }
 
         if(isset($body->ccv)) {
             array_push($query, "ccv = '{$body->ccv}'");
+            $_SESSION["userCCV"] = $body->ccv;
         }
 
         if(isset($body->cardHolderName)) {
             array_push($query, "card_holder_name = '{$body->cardHolderName}'");
+            $_SESSION["userCardHolderName"] = $body->cardHolderName;
         }
 
         if(isset($body->cpfCnpj)) {
             array_push($query, "cpf_cnpj = '{$body->cpfCnpj}'");
+            $_SESSION["userCpf"] = $body->cpfCnpj;
         }
 
         $query = implode(", ", $query);
 
         $query = "UPDATE users SET ".$query." WHERE id = '{$id}'";
 
-        $result = $mysqli->query($query);
-        $mysqli->close();
+        $mysqli->query($query);
 
-        if(!$result) {
+        if($mysqli->affected_rows < 1) {
             echo json_encode(array('message' => 'Usuário não encontrado!'));
             return http_response_code(400);
         }
+
+        $mysqli->close();
 
         echo json_encode(array('message' => 'Usuário alterado com sucesso!'));
         return http_response_code(200);

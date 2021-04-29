@@ -26,6 +26,19 @@ class Auth {
 
     }
 
+    public function getSession(){
+        session_set_cookie_params(['SameSite' => 'None']);
+        session_start();
+        if (!isset($_SESSION['userId'])) {
+            echo json_encode(array('message'=>'Usuário não logado'));
+            return http_response_code(403);
+            exit;
+        }
+
+        echo json_encode($_SESSION);
+        return http_response_code(200);
+    }
+
     public function delete() {
         session_start();
 
@@ -35,6 +48,7 @@ class Auth {
     }
 
     private function startSession($user) {
+        session_set_cookie_params(['SameSite' => 'None']);
         session_start();
         $_SESSION["userId"] = $user[0];
         $_SESSION["userName"] = $user[1];

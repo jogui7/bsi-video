@@ -11,7 +11,7 @@
         exit;
     }
 
-    header("Location: http://bsi.video.test/login.html");
+    header("Location: http://bsi.video.test");
     
     exit;
 ?>

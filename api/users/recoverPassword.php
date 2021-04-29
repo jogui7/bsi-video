@@ -9,9 +9,9 @@
 
     $query = "UPDATE users SET token = '{$token}' WHERE email = '{$body->email}'";        
 
-    $result = $mysqli->query($query);
+    $mysqli->query($query);
 
-    if (!$result) {
+    if ($mysqli->affected_rows < 1) {
         echo json_encode(array('message'=>'Erro ao enviar email de recuperação de senha!'));
         return http_response_code(400);
         exit;
