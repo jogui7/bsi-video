@@ -1,0 +1,120 @@
+header {
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    padding: 0 10%;
+    height: 80px;
+}
+
+header a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h2 {
+    color: #fff;
+    margin-left: 10px;
+}
+
+header img {
+    color: #fff;
+    width: 30px;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 20%;
+}
+
+.user {
+    flex: 1;
+    background-color: #000;
+    border-radius: 8px;
+    display: flex;
+    min-height: 50vh;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.user h2 {
+    color: #fff;
+}
+
+.userData {
+    margin-bottom: 20px;
+    color: #d3d3d3;
+}
+
+.userData .row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cardData {
+    margin-top: 20px;
+    color: #d3d3d3;
+}
+
+.cardData .row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.content form {
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    min-width: 400px;
+}
+
+.content form h1 {
+    color: #fff;
+}
+
+.content form label {
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.content form input {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+}
+
+.content form button {
+    width: 200px;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    background-color: #e50914;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.content form a{
+    color: #e50914;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.content form a:hover {
+    text-decoration: underline;
+}
+

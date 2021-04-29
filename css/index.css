@@ -1,0 +1,92 @@
+.content {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    padding: 50px;
+    min-height: 400px;
+    min-width: 400px;
+}
+
+.content form h1 {
+    color: #fff;
+}
+
+.content form label {
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.content form input {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+}
+
+.content form button {
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    background-color: #e50914;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.content form .row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    color: #ccc;
+}
+
+.content form .row a{
+    color: #e50914;
+    text-decoration: none;
+}
+
+.content form .row a:hover {
+    text-decoration: underline;
+}
+
+.checkbox {
+    justify-content: unset !important;
+    width: auto !important;
+}
+
+.checkbox input{
+    width: auto !important;
+    margin: 0 !important;
+}
+.checkbox label {
+    width: auto !important;
+    margin: 0 30px 0 5px !important;
+}
+
+.cadastrarbtn {
+    margin-top: 30px;
+    color: #e50914;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.cadastrarbtn:hover {
+    text-decoration: underline;
+}

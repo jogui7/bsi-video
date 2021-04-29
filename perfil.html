@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meu perfil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/globals.css" rel="stylesheet">
+    <link href="css/perfil.css" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+    <script src="../js/libs/sjcl.js"></script>
+    <script type="text/javascript" src="js/perfil.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="/home.html">
+            <img src="img/arrow-left.svg" alt="voltar">
+        </a>
+        <h2>Meu perfil</h2>
+    </header>
+    <div class="content">
+        <div class="user">
+            <div class="userData">
+                <h2>Dados do usuário</h2>
+                <div class="row">
+                    <p id="name">Nome: -</p>
+                    <p id="email">Email: -</p>
+                    <p id="birthdate">Data de nascimento: -</p>
+                </div>
+            </div>
+            <hr>
+            <div class="cardData">
+                <h2>Dados do cartão</h2>
+                <form>
+                    <label for='cardNumber'>Número do cartão</label>   
+                    <input type="number" id="cardNumber" name="cardNumber" />
+
+                    <label for='ccv'>Código de segurança do cartão</label> 
+                    <input type="number" id="ccv" name="ccv"/>
+
+                    <label for='cardHolder'>Nome do titular do cartão</label>
+                    <input type="text" id="cardHolder" name="cardHolder" />
+
+                    <label for='cardExpireDate'>Validade do cartão</label>  
+                    <input type="month" id="cardExpireDate" name="cardExpireDate"/>
+
+                    <div class="row">
+                        <a id="cancelbtn">Cancelar</a>
+                        <button id="savebtn">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

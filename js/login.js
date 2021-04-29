@@ -36,13 +36,16 @@ function logar(){
 
     fetch("http://localhost/bsi-video/api/auth/index.php/", {
         method: "POST",
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
+        credentials: "include"
     })
     .then(async (res) => {
         const json = await res.json();
         alert(json.message);
         if(res.ok) {
             window.location.href = "http://bsi.video.test/home.html";
+            console.log(res.headers.get('set-cookie'));
+            console.log(document.cookie);
             if (remember) {
                 localStorage.setItem('email', email);
                 localStorage.setItem('password', password);

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Senha</title>
+    <link href="css/globals.css" rel="stylesheet">
+    <link href="css/recuperarSenha.css" rel="stylesheet">
     <script
         src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -12,11 +14,16 @@
     <script type="text/javascript" src="js/recuperarSenha.js"></script>
 </head>
 <body>
-    <form>
-        <h1>Recuperar senha</h1>
-        <label for="email">Digite seu email:</label>
-        <input type="email" id="email" name="email"/>
-        <button type="submit" id="button">Enviar email</button>
-    </form>
+    <div class="content">
+        <form>
+            <h1>Recuperar senha</h1>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email"/>
+            </div>
+            <button type="submit" id="button">Enviar email</button>
+            <a href="/">Voltar</a>
+        </form>
+    </div>
 </body>
 </html>

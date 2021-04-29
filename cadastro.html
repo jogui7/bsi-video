@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Cadastrar-se</title>
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/cadastro.css" />
     <script
         src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -14,64 +15,44 @@
     <script type="text/javascript" src="js/cadastro.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <h1> Cadastrar-se </h1>
-                <form>
-                    <div class='label-float'>
-                        <input type="text" id="nome" name="nome" required/>
-                        <label for='nome'>Nome completo</label>
-                    </div>      
+    <div class="content">
+        <form>
+            <h1>Cadastrar-se</h1>
+            <label for='nome'>Nome completo</label>  
+            <input type="text" id="nome" name="nome" required/>
 
-                    <div class='label-float'>      
-                        <input type="date" id="nascimento" name="nascimento"/>
-                        <label for='nascimento'>Data de Nascimento</label>
-                    </div>     
+            <label for='nascimento'>Data de Nascimento</label>   
+            <input type="date" id="nascimento" name="nascimento"/>
 
-                    <div class='label-float'>       
-                        <input type="email" id="email" name="email"/>
-                        <label for='email'>E-mail</label>
-                    </div>     
+            <label for='email'>E-mail</label>       
+            <input type="email" id="email" name="email"/>
 
-                    <div class='label-float'>        
-                        <input type="password" id="senha" name="senha"/>
-                        <label for='senha'>Senha</label>
-                    </div>             
+            <label for='senha'>Senha</label>   
+            <input type="password" id="senha" name="senha"/>
 
-                    <div class='label-float'>        
-                        <input type="password" id="confSenha" name="confSenha" />
-                        <label for='confSenha'>Confirmar Senha</label>
-                    </div>  
+            <label for='confSenha'>Confirmar Senha</label>  
+            <input type="password" id="confSenha" name="confSenha" />
 
-                    <div class='label-float'>       
-                        <input type="number" id="numero" name="numero" />
-                        <label for='numero'>Número do cartão</label>
-                    </div> 
+            <label for='numero'>Número do cartão</label>   
+            <input type="number" id="numero" name="numero" />
 
-                    <div class='label-float'>        
-                        <input type="month" id="validade" name="validade"/>
-                        <label for='validade'>Validade do cartão</label>
-                    </div>             
+            <label for='validade'>Validade do cartão</label>  
+            <input type="month" id="validade" name="validade"/>
 
-                    <div class='label-float'>       
-                        <input type="number" id="codigo" name="codigo"/>
-                        <label for='codigo'>Código de segurança do cartão</label>
-                    </div>    
+            <label for='codigo'>Código de segurança do cartão</label> 
+            <input type="number" id="codigo" name="codigo"/>
 
-                    <div class='label-float'>        
-                        <input type="text" id="titular" name="titular" />
-                        <label for='titular'>Nome do titular do cartão</label>
-                    </div>             
+            <label for='titular'>Nome do titular do cartão</label>
+            <input type="text" id="titular" name="titular" />
 
-                    <div class='label-float'>        
-                        <input type="number" id="cpf" name="cpf" />
-                        <label for='cpf'>CPF/CNPJ</label>
-                    </div>           
-        
-                    <button id="botaoCadastrar" type="submit">
-                        Cadastrar
-                    </button>
-                </form>
-        </div>
+            <label for='cpf'>CPF/CNPJ</label>    
+            <input type="number" id="cpf" name="cpf" />
+
+            <button id="botaoCadastrar" type="submit">
+                Cadastrar
+            </button>
+            <span>Já e cadastrado? Realize o login <a href="/">aqui</a></span>
+        </form>
+    </div>
 </body>
 </html>

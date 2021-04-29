@@ -1,5 +1,9 @@
 <?php
 
+header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Origin: http://bsi.video.test");
+header("Access-Control-Allow-Credentials: true");
+
 session_start();
 
 if (!isset($_SESSION['userId'])) {
@@ -8,8 +12,6 @@ if (!isset($_SESSION['userId'])) {
     exit;
 }
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: *");
 
 require_once '../database/index.php';
 require_once './movies.class.php';

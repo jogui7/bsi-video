@@ -81,7 +81,7 @@ function cadastrar(){
         const json = await res.json();
         alert(json.message);
         if(res.ok) {
-            window.location.href = "http://bsi.video.test/login.html";
+            window.location.href = "http://bsi.video.test";
         }
     })
 }
