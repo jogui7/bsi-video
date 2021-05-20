@@ -1,7 +1,6 @@
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #000;
     padding: 0 10%;
     height: 80px;
@@ -15,22 +14,13 @@ header a {
 
 header h2 {
     color: #fff;
+    margin-left: 10px;
 }
 
 header img {
     color: #fff;
     width: 30px;
     cursor: pointer;
-
-}
-
-header a + a {
-    margin-left: 16px;
-}
-
-header .row {
-    display: flex;
-    align-items: center;
 }
 
 .content {
@@ -45,12 +35,12 @@ header .row {
     width: 100%;
 }
 
-.filmes {
+.filmes, .series {
     flex: 1;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 .filme {
