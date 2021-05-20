@@ -40,23 +40,13 @@ function fetchFilmes() {
     .then(async (res) => {
         const json = await res.json();
         if(!res.ok) {
-            alert('Erro ao buscar filmes');
+            return;
         }
         json.forEach(filme => {
             $('.filmes').append(`
-                <div class="filme">
-                    <b>${filme.title}</b>
-    
-                    <p class="descricao">${filme.synopsis}o</p>
-    
-                    <p>Data de lançamento: ${filme.release_date.split('-').reverse().join('/')}</p> 
-    
-                    <p>Gênero: ${filme.genre}</p>
-                    
-                    <p>Relevância: ${filme.relevance}</p>
-    
-                    <p>Trailer: <a href="${filme.trailer}">link</a></p>
-                </div>
+                <a href="/filme.html?id=${filme.id}" class="filme">
+                    <img src="${filme.banner_url}" />
+                </a>
             `);
         });
     })
