@@ -1,0 +1,96 @@
+header {
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    padding: 0 10%;
+    height: 80px;
+}
+
+header a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h2 {
+    color: #fff;
+    margin-left: 10px;
+}
+
+header img {
+    color: #fff;
+    width: 30px;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    padding: 2% 20%;
+}
+
+.filme {
+    flex: 1;
+    background-color: #000;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.filme .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.filme .column {
+    display: flex;
+    flex-direction: column;
+}
+
+.column > .row {
+    padding-right: 15px;
+}
+
+.row-item {
+    flex: 1 0 calc(25% - 10px);
+}
+
+.filme img {
+    max-height: 300px;
+}
+
+.filme b {
+    color: #fff;
+}
+
+.filme p {
+    color: #d3d3d3;
+    margin-top: 10px;
+}
+
+.content button {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    background-color: #e50914;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.filme .trailer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-right: 15px;
+    padding-top: 20%;
+}
+
+.filme iframe {
+    flex: 1;
+    margin-top: 10px;
+}

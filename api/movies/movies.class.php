@@ -3,7 +3,7 @@
 class Movies {
 
     public function find($mysqli, $request){
-        if(isset($request[1])) {
+        if(isset($request[1]) && $request[1] != "") {
             $id = $request[1];
             $query = "SELECT * FROM movies WHERE id = '{$id}'";
         } else {

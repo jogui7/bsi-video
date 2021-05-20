@@ -26,7 +26,7 @@ function alterarSenha(){
         token
     };
 
-    fetch("http://localhost/bsi-video/api/users/changePassword", {
+    fetch("http://localhost/bsi-video/api/users/changePassword.php", {
         method: "PATCH",
         body: JSON.stringify(formData)
     })

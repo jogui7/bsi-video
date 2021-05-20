@@ -14,9 +14,9 @@ if (!isset($_SESSION['userId'])) {
 
 
 require_once '../database/index.php';
-require_once './movies.class.php';
+require_once './favorites.class.php';
 
-$movies = new Movies();
+$favorites = new Favorites();
 
 $method = $_SERVER['REQUEST_METHOD'];
 // $request = $_SERVER['QUERY_STRING'];
@@ -25,18 +25,20 @@ if(isset($_SERVER['PATH_INFO'])) {
     $request = explode("/", $_SERVER['PATH_INFO']);
 }
 
+$request = "";
+
 switch ($method) {
     case 'PATCH':
-        $movies->update($mysqli);  
+        $favorites->update($mysqli);  
         break;
     case 'POST':
-        $movies->create($mysqli);  
+        $favorites->create($mysqli);  
         break;
     case 'GET':
-        $movies->find($mysqli, $request); 
+        $favorites->find($mysqli); 
         break;
     case 'DELETE':
-        $movies->delete($mysqli, $request); 
+        $favorites->delete($mysqli); 
         break;
     default:
         handle_error($request);  
