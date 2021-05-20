@@ -2,38 +2,49 @@
 
 class Favorites {
 
-    public function find($mysqli){
+    public function getMovieIds($v) {
+        return $v;
+    }
+
+    public function find($mysqli) {
         $id = $_SESSION["userId"];
 
         $query = "SELECT movie_id FROM favorites WHERE user_id = '{$id}'";
 
         $result = $mysqli->query($query);
 
-        $favoritesIds = mysqli_fetch_row($result);
+        $favoritesIds = [];
 
-        if(mysqli_num_rows($result) == 0) {
+        if(mysqli_num_rows($result) < 1) {
             $mysqli->close();
-            echo json_encode(array('message' => 'Nenhum filme favoritado!'));
-            return http_response_code(404);
+            echo json_encode([]);
+            return http_response_code(200);
         }
-        
-        $query = "SELECT * FROM movies WHERE id IN (". implode(',', array_map('intval', $favoritesIds)) . ")";
+
+        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        foreach ($rows as $row) {
+            array_push($favoritesIds, $row["movie_id"]);
+        }
+
+
+        $query = "SELECT * FROM movies WHERE id IN (". implode(',', $favoritesIds) . ")";
 
         $result = $mysqli->query($query);
 
         $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+        $mysqli->close();
+
         echo json_encode($movies);
         return http_response_code(200);
     }
 
-    public function create($mysqli){
+    public function create($mysqli, $request) {
 
         $id = $_SESSION["userId"];
+        $movieId = $request[1];
 
-        $body = json_decode(file_get_contents('php://input', true));
-
-        $query = "SELECT * FROM favorites WHERE user_id = '{$id}' AND movie_id = '{$body->movieId}'";
+        $query = "SELECT * FROM favorites WHERE user_id = '{$id}' AND movie_id = '{$movieId}'";
 
         $result = $mysqli->query($query);
 
@@ -42,7 +53,7 @@ class Favorites {
             return http_response_code(400);
         }
 
-        $query = "INSERT INTO favorites VALUES ('','{$id}', '{$body->movieId}')";        
+        $query = "INSERT INTO favorites VALUES ('','{$id}', '{$movieId}')";        
 
         if(!$mysqli->query($query)) {
             echo json_encode(array('message' => 'Erro ao favoritar'));
@@ -55,13 +66,12 @@ class Favorites {
         return http_response_code(200);
     }
 
-    public function delete($mysqli){
+    public function delete($mysqli, $request) {
 
         $id = $_SESSION["userId"];
+        $movieId = $request[1];
 
-        $body = json_decode(file_get_contents('php://input', true));
-
-        $query = "DELETE FROM favorites WHERE user_id = '{$id}' AND movie_id = '{$body->movieId}'";   
+        $query = "DELETE FROM favorites WHERE user_id = '{$id}' AND movie_id = '{$movieId}'";   
 
         $mysqli->query($query);
 

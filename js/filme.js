@@ -33,7 +33,8 @@ function logout(){
 
 function fetchFilmes() {
     var params = new window.URLSearchParams(window.location.search);
-    fetch(`http://localhost/bsi-video/api/movies/index.php/${params.get('id')}`, {
+    const movieId = params.get('id');
+    fetch(`http://localhost/bsi-video/api/movies/index.php/${movieId}`, {
         credentials:"include"
     })
     .then(async (res) => {
@@ -61,14 +62,14 @@ function fetchFilmes() {
                         </div>
                         <div class="row-item">
                             <b>Duração:</b>
-                            <p>${filme.duration} ${filme.is_movie ? 'minutos' : 'temporadas'}</p>
+                            <p>${filme.is_movie ? convertMinutes(filme.duration) : `${filme.duration} temporadas`}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="row-item">
                             <b>Descrição:</b>
                             <p>${filme.synopsis}</p>
-                            <button>Adicionar aos favoritos</button>
+                            <button id="favbtn">Adicionar aos favoritos</button>
                         </div>
                     </div>
                 </div>
@@ -77,8 +78,43 @@ function fetchFilmes() {
             <b>Trailer:</b>
             <iframe src="${filme.trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         `);
+    }).then(() => {
+        fetch(`http://localhost/bsi-video/api/favorites/index.php/`, {
+            credentials:"include"
+        })
+        .then(async (res) => {
+            const favs = await res.json();
+            if(!res.ok) {
+                return;
+            }
+            $('#favbtn').text(favs.map(fav => fav.id).includes(movieId) ? 'Remover dos favoritos' : 'Adicionar aos favoritos');
+            $('#favbtn').click(function() { 
+                handleFav(movieId) 
+            });
+        })
     })
 }
+
+function handleFav(movieId) {
+    fetch(`http://localhost/bsi-video/api/favorites/index.php/${movieId}`, {
+        method: $('#favbtn').text() == 'Adicionar aos favoritos' ? 'POST' : 'DELETE',
+        credentials:"include"
+    })
+    .then(async (res) => {
+        if(res.ok) {
+            $('#favbtn').text($('#favbtn').text() == 'Adicionar aos favoritos' ? 'Remover dos favoritos' : 'Adicionar aos favoritos');
+            return;
+        } 
+        alert(`Erro ao ${$('#favbtn').text() == 'Remover dos favoritos' ? 'remover dos favoritos' : 'adicionar aos favoritos'}`);
+    })
+}
+
+function convertMinutes(minutes) {
+    const h = Math.floor(minutes/ 60);          
+    const min = minutes % 60;
+    
+    return `${h}h ${min}m`;
+  };
 
 function getGenre(genre) {
     switch (genre) {
