@@ -50,7 +50,7 @@ header img {
     flex-direction: column;
     flex: 1 0 calc(17% - 15px);
     max-width: calc(17% - 15px);
-    aspect-ratio: 1/2;
+    aspect-ratio: 5/8;
     margin-top: 10px;
     margin-left: 10px;
     font-size: 17px;

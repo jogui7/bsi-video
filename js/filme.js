@@ -62,7 +62,7 @@ function fetchFilmes() {
                         </div>
                         <div class="row-item">
                             <b>Duração:</b>
-                            <p>${filme.duration} ${filme.is_movie ? 'minutos' : 'temporadas'}</p>
+                            <p>${filme.is_movie ? convertMinutes(filme.duration) : `${filme.duration} temporadas`}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -108,6 +108,13 @@ function handleFav(movieId) {
         alert(`Erro ao ${$('#favbtn').text() == 'Remover dos favoritos' ? 'remover dos favoritos' : 'adicionar aos favoritos'}`);
     })
 }
+
+function convertMinutes(minutes) {
+    const h = Math.floor(minutes/ 60);          
+    const min = minutes % 60;
+    
+    return `${h}h ${min}m`;
+  };
 
 function getGenre(genre) {
     switch (genre) {
