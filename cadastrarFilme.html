@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/globals.css" rel="stylesheet">
+    <link href="css/cadastrarFilme.css" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+    <script src="../js/libs/sjcl.js"></script>
+    <script type="text/javascript" src="js/cadastrarFilme.js"></script>
+</head>
+
+<body>
+    <header>
+        <a onclick="window.history.back()">
+            <img src="img/arrow-left.svg" alt="voltar">
+        </a>
+        <h2>Cadastrar filme</h2>
+    </header>
+    <div class="content">
+        <div class="filme">
+            <h2>Dados do filme</h2>
+            <form>
+                <div class="input">
+                    <label for='title'>Título:</label>   
+                    <input type="text" id="title" name="title" />
+                </div>
+                <div class="input-group">
+                    <div class="input">
+                        <label for='genre'>Gênero:</label>   
+                        <select name="genre" id="genre">
+                            <option value=""></option>
+                            <option value="ACTION">Ação</option>
+                            <option value="ADVENTURE">Aventura</option>
+                            <option value="COMEDY">Comédia</option>
+                            <option value="CRIME_MYSTERY">Mistério Criminal</option>
+                            <option value="FANTASY">Fantasia</option>
+                            <option value="HISTORICAL">Histórico</option>
+                            <option value="HORROR">Terror</option>
+                            <option value="ROMANCE">Romance</option>
+                            <option value="SATIRE">Sátira</option>
+                            <option value="SCI_FI">Ficção Científica</option>
+                            <option value="THRILLER">Suspense</option>
+                            <option value="OTHER">Outros</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for='releaseDate'>Data de lançamento:</label>   
+                        <input type="date" id="releaseDate" name="releaseDate"/>
+                    </div>
+                    <div class="input">
+                        <label for='relevance'>Relevância:</label>   
+                        <select name="relevance" id="relevance">
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input">
+                        <label for='trailer'>Trailer:</label>   
+                        <input type="text" id="trailer" name="trailer" />
+                    </div>
+                    <div class="input">
+                        <label for='isMovie'>Tipo:</label>   
+                        <select name="isMovie" id="isMovie">
+                            <option value=""></option>
+                            <option value="1">Filme</option>
+                            <option value="0">Série</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for='duration'>Duração:</label>   
+                        <input type="number" id="duration" name="duration" />
+                    </div>
+                </div>
+                <div class="input">
+                    <label for='banner'>Banner:</label>   
+                    <input type="file" id="banner" name="banner">
+                </div>
+                <div class="input">
+                    <label for='synopsis'>Sinopse:</label>   
+                    <textarea id="synopsis" name="synopsis"></textarea>
+                </div>
+                <div class="row">
+                    <button id="savebtn">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

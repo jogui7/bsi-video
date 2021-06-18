@@ -38,10 +38,11 @@ function fetchFilmes() {
         credentials:"include"
     })
     .then(async (res) => {
-        const filme = await res.json();
+        let filme = await res.json();
         if(!res.ok) {
             return;
         }
+        filme = filme[0];
         document.title = filme.title;
         $('header h2').text(filme.title);
         $('.filme').append(`
@@ -62,7 +63,7 @@ function fetchFilmes() {
                         </div>
                         <div class="row-item">
                             <b>Duração:</b>
-                            <p>${filme.is_movie ? convertMinutes(filme.duration) : `${filme.duration} temporadas`}</p>
+                            <p>${filme.is_movie == '1' ? convertMinutes(filme.duration) : `${filme.duration} temporadas`}</p>
                         </div>
                     </div>
                     <div class="row">

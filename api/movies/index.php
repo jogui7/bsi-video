@@ -19,10 +19,20 @@ require_once './movies.class.php';
 $movies = new Movies();
 
 $method = $_SERVER['REQUEST_METHOD'];
-// $request = $_SERVER['QUERY_STRING'];
+$url = $_SERVER['REQUEST_URI'];
 
-if(isset($_SERVER['PATH_INFO'])) {
+$url_components = parse_url($url); 
+
+if(empty($url_components['query'])) {
+    $params = "";
+} else {
+    parse_str($url_components['query'], $params);
+}
+
+if(!empty($_SERVER['PATH_INFO'])) {
     $request = explode("/", $_SERVER['PATH_INFO']);
+} else {
+    $request = "";
 }
 
 switch ($method) {
@@ -33,7 +43,7 @@ switch ($method) {
         $movies->create($mysqli);  
         break;
     case 'GET':
-        $movies->find($mysqli, $request); 
+        $movies->find($mysqli, $request, $params); 
         break;
     case 'DELETE':
         $movies->delete($mysqli, $request); 
