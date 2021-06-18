@@ -18,7 +18,7 @@ class Users {
 
         $token = uniqid("");
 
-        $query = "INSERT INTO users VALUES ('','{$body->name}', '{$body->birthdate}', '{$body->email}', '{$body->password}', '{$body->creditCardNumber}', '{$body->creditCardExpireDate}', '{$body->ccv}', '{$body->cardHolderName}', '{$body->cpfCNPJ}', 'false','{$token}')";        
+        $query = "INSERT INTO users VALUES ('','{$body->name}', '{$body->birthdate}', '{$body->email}', '{$body->password}', '{$body->creditCardNumber}', '{$body->creditCardExpireDate}', '{$body->ccv}', '{$body->cardHolderName}', '{$body->cpfCNPJ}', '', 'false','{$token}')";        
 
         if(!$mysqli->query($query)) {
             echo json_encode(array('message' => 'Erro ao cadastrar usuário!'));

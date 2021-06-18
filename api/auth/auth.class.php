@@ -59,6 +59,7 @@ class Auth {
         $_SESSION["userCCV"] = $user[7];
         $_SESSION["userCardHolderName"] = $user[8];
         $_SESSION["userCpf"] = $user[9];
+        $_SESSION["isAdmin"] = $user[10];
     }
 
 }

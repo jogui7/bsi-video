@@ -25,6 +25,56 @@
         </div>
     </header>
     <div class="content">
+        <div class="filtros">
+            <div class="filtro-item">
+                <label for="title">Título: </label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="filtro-item">
+                <label for="genre">Gênero: </label>
+                <select name="genre" id="genre">
+                    <option value=""></option>
+                    <option value="ACTION">Ação</option>
+                    <option value="ADVENTURE">Aventura</option>
+                    <option value="COMEDY">Comédia</option>
+                    <option value="CRIME_MYSTERY">Mistério Criminal</option>
+                    <option value="FANTASY">Fantasia</option>
+                    <option value="HISTORICAL">Histórico</option>
+                    <option value="HORROR">Terror</option>
+                    <option value="ROMANCE">Romance</option>
+                    <option value="SATIRE">Sátira</option>
+                    <option value="SCI_FI">Ficção Científica</option>
+                    <option value="THRILLER">Suspense</option>
+                    <option value="OTHER">Outros</option>
+                </select>
+            </div>
+            <div class="filtro-item">
+                <label for="isMovie">Tipo: </label>
+                <select name="isMovie" id="isMovie">
+                    <option value=""></option>
+                    <option value="1">Filme</option>
+                    <option value="0">Série</option>
+                </select>
+            </div>
+            <div class="filtro-item">
+                <label for="releaseDate">Ano de Lançamento: </label>
+                <input type="text" name="releaseDate" id="releaseDate">
+            </div>
+            <div class="filtro-item">
+                <label for="relevance">Relevância: </label>
+                <select name="relevance" id="relevance">
+                    <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <button id="filter-btn">
+                Aplicar Filtros
+            </button>
+        </div>
         <h2>Catálogo</h2>
         <div class="filmes">
         </div>
